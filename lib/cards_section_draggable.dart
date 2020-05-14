@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'profile_card_draggable.dart';
 
@@ -84,7 +86,7 @@ class _CardsSectionState extends State<CardsSectionDraggable> {
       cards[2] = temp;
 
       cards[2] = ProfileCardDraggable(cardsCounter);
-      cardsCounter++;
+      cardsCounter = Random().nextInt(9999);
     });
   }
 
