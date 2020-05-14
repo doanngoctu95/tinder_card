@@ -2,31 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b54910-710e-46c9-831f-abe002fcd0c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/avatar_default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/location.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/mail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/social.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/id.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/info.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/location.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/login.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/name.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/picture.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/results.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/user.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/src/colors.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/src/dimens.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/utils.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widget/components/avatar.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widget/components/place_holder_widget.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widget/components/shimmer.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widget/item_card.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/model/user_favorite/user_favorite.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/page/list_favorite/list_favorite_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/repo/repo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/user/user_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/database/database_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/cards_section_draggable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/cards_section_draggable.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/profile_card_draggable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/profile_card_draggable.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/page/swipe_feed_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/page/swipe_feed_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/cards_section_draggable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/cards_section_draggable.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/item_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/item_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/profile_card_draggable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/profile_card_draggable.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -36,7 +26,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="4.65_720p_Galaxy_Nexus_API_26" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Galaxy_Nexus_API_26" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -48,17 +38,24 @@
     </option>
   </component>
   <component name="ProjectId" id="1btLl0Ii8MWc86w6C6HOfhpHxh2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/model/user_favorite" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib/model/user_favorite" />
+      <recent name="$PROJECT_DIR$/lib/utils/database" />
+      <recent name="$PROJECT_DIR$/lib/page/list_favorite" />
       <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -91,7 +88,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

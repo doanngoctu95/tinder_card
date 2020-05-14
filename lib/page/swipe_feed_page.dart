@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_cards/page/list_favorite/list_favorite_page.dart';
+import 'package:tinder_cards/user/user_bloc.dart';
+import '../model/user.dart';
 import '../widget/cards_section_draggable.dart';
 
 class SwipeFeedPage extends StatefulWidget {
@@ -8,6 +11,14 @@ class SwipeFeedPage extends StatefulWidget {
 
 class _SwipeFeedPageState extends State<SwipeFeedPage> {
   bool showAlignmentCards = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      bloc.getUser(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +38,22 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
       backgroundColor: Colors.white,
       body: Column(
         children: <Widget>[
-          CardsSectionDraggable(),
+          StreamBuilder<User>(
+            stream: bloc.subject.stream,
+            builder: (context, AsyncSnapshot<User> snapshot) {
+              print('snapshot data: ${snapshot.data}');
+              if (snapshot.hasData) {
+                if (snapshot.data != null) {
+                  return _buildUserWidget(snapshot.data);
+                } else
+                  return _buildErrorWidget();
+              } else if (snapshot.hasError) {
+                return _buildErrorWidget();
+              } else {
+                return _buildLoadingWidget();
+              }
+            },
+          ),
           buttonsRow()
         ],
       ),
@@ -41,33 +67,28 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          FloatingActionButton(
-            mini: true,
-            onPressed: () {},
-            backgroundColor: Colors.white,
-            child: Icon(Icons.loop, color: Colors.yellow),
-          ),
           Padding(padding: EdgeInsets.only(right: 8.0)),
           FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colors.white,
-            child: Icon(Icons.close, color: Colors.red),
-          ),
-          Padding(padding: EdgeInsets.only(right: 8.0)),
-          FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return UserFavoriteListPage();
+              }));
+            },
             backgroundColor: Colors.white,
             child: Icon(Icons.favorite, color: Colors.green),
           ),
           Padding(padding: EdgeInsets.only(right: 8.0)),
-          FloatingActionButton(
-            mini: true,
-            onPressed: () {},
-            backgroundColor: Colors.white,
-            child: Icon(Icons.star, color: Colors.blue),
-          ),
+
         ],
       ),
     );
+  }
+
+  Widget _buildLoadingWidget() => Center(child: CircularProgressIndicator());
+
+  Widget _buildErrorWidget() => Center(child: Text('Error'));
+
+  Widget _buildUserWidget(User data) {
+    return CardsSectionDraggable(user: data);
   }
 }

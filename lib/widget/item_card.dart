@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tinder_cards/model/location.dart';
-import 'package:tinder_cards/model/name.dart';
-import 'package:tinder_cards/model/picture.dart';
-import 'package:tinder_cards/model/results.dart';
 import 'package:tinder_cards/utils/utils.dart';
-
 import '../model/user.dart';
+import '../utils/utils.dart';
 import 'components/avatar.dart';
 
 const double _sizeItemBottom = 30.0;
@@ -19,19 +15,9 @@ typedef OnItemBottomClick();
 // ignore: must_be_immutable
 class ItemCard extends StatefulWidget {
   final int cardNumb;
+  final User user;
 
-  ItemCard({Key key, this.cardNumb}) : super(key: key);
-
-  User user = User(results: [
-    Results(
-        email: 'abc@gmail.com',
-        location: Location(city: 'HN', state: 'VN', street: 'HQV'),
-        name: Name(
-          first: 'Ngoc',
-          last: 'Nguyen',
-        ),
-        picture: Picture(thumbnail: 'https://randomuser.me/api/portraits/thumb/women/90.jpg'))
-  ]);
+  ItemCard({Key key, this.cardNumb,@required this.user}) : super(key: key);
 
   @override
   _ItemCardState createState() => _ItemCardState();
@@ -52,19 +38,19 @@ class _ItemCardState extends State<ItemCard>
       Container(
           alignment: Alignment.center,
           child: Text(
-            '${widget.user.results[0].name.last}, ${widget.cardNumb}',
+            '${widget.user.results[0].name?.last}, ${widget?.cardNumb}',
             style: TextStyle(color: Colors.blue),
           )),
       Container(
           alignment: Alignment.center,
           child: Text(
-            '${widget.user.results[0].location.state}, ${widget.user.results[0].location.city}, ${widget.user.results[0].location.street}',
+            '${widget.user.results[0].location?.state}, ${widget.user.results[0].location?.city}, ${widget.user.results[0].location?.street}',
             style: TextStyle(color: Colors.blue),
           )),
       Container(
           alignment: Alignment.center,
           child: Text(
-            '${widget.user.results[0].email}',
+            '${widget.user.results[0]?.email}',
             style: TextStyle(color: Colors.blue),
           )),
     ];
@@ -75,30 +61,33 @@ class _ItemCardState extends State<ItemCard>
   Widget build(BuildContext context) {
     super.build(context);
     return Card(
-      child: Stack(
-        alignment: Alignment.topCenter,
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 50),
-            child: _content(),
-          ),
-          Positioned(
-            top: 40,
-            left: 0,
-            right: 0,
-            child: const Divider(
-              height: 1,
-              color: Colors.grey,
+      child: Container(
+        margin: const EdgeInsets.only(top: mPadding),
+        child: Stack(
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(top: 50),
+              child: _content(),
             ),
-          ),
-          Positioned(
-            child: AvatarRadius(
-              url: widget.user.results[0].picture?.thumbnail,
-              width: _sizeAvatar,
-              height: _sizeAvatar,
+            Positioned(
+              top: 40,
+              left: 0,
+              right: 0,
+              child: const Divider(
+                height: 0.6,
+                color: Colors.grey,
+              ),
             ),
-          )
-        ],
+            Positioned(
+              child: AvatarRadius(
+                url: widget.user.results[0].picture?.thumbnail,
+                width: _sizeAvatar,
+                height: _sizeAvatar,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
