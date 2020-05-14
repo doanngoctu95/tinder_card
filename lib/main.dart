@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'swipe_feed_page.dart';
+import 'page/swipe_feed_page.dart';
 
 void main() => runApp(MyApp());
 
